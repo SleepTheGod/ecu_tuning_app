@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Tuning Results</h2>
+<table>
+    <tr>
+        <th>Parameter</th>
+        <th>Value</th>
+    </tr>
+    {% for tuning in tunings %}
+    <tr>
+        <td>{{ tuning.parameter }}</td>
+        <td>{{ tuning.value }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
