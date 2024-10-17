@@ -9,9 +9,13 @@
 <body>
     <nav>
         <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('register') }}">Register</a>
-        <a href="{{ url_for('login') }}">Login</a>
-        <a href="{{ url_for('tuning') }}">Tuning</a>
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('tuning') }}">Tuning</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('register') }}">Register</a>
+            <a href="{{ url_for('login') }}">Login</a>
+        {% endif %}
     </nav>
     <div class="container">
         {% with messages = get_flashed_messages() %}
